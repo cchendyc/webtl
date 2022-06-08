@@ -1,0 +1,170 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: #f4f4f4;
+	line-height: 1.3em;
+
+}
+
+
+.bt0 {
+	margin-top: 20px;
+	background-color: #333;
+	color:#fff;
+	padding: 20px 20px;
+	border: 0;
+	text-align: center;
+	border-radius: 15px;
+
+}
+
+.bt0:hover{
+	background: black;
+	color: #fff;
+
+}
+
+.fix-bt {
+	position: fixed;
+	top: 400px;
+	border-radius: 0;
+}
+
+a {
+	text-decoration: none;
+}
+/*----------------------------WELCOME PAGE END------------------------------*/
+/*submit button for the main page*/
+.container{
+	width: 80%;
+	margin: auto;
+
+}
+
+.container li{
+	margin-left: 20px;
+}
+
+.main{
+	margin: 0 0 100px 0;
+}
+
+.main h1{
+	padding: 80px 0 80px 0;
+	text-align: center;
+}
+
+.submit0 {
+	padding-top: 50px;
+	text-align: center;
+}
+
+.hd-box {
+	width: 100%;
+	height: 80px;
+/*	border: 1px solid #000;*/
+	background-color: #002B8C;
+	margin-top: 0;
+	margin-bottom: 30px;
+	position: relative;
+
+}
+.hd-box img {
+	position: absolute;
+	width:120px;
+	height:64px;
+
+	top:10px;
+	left: 20px;
+}
+.hd-box h3 {
+	position: absolute;
+	left: 200px;
+	bottom: 10px;
+	color: white;
+}
+
+#main-footer {
+	background-color: #002B8C;
+	color: #fff;
+	margin-bottom: 0;
+	font-size: 10px;
+	text-align: right;
+	padding-right: 10px;
+
+}
+
+/*----------------------------Survey------------------------------*/
+.submit1 {
+	/*	text-align: center;*/
+		border: 1px #ccc solid;
+		border-radius: 15px;
+		/* text-align: left; */
+		padding: 2% 5% 2% 2%;
+		margin-top: 50px;
+		position:relative;
+		margin-bottom: 10px;
+	}
+	
+.submit1 label {
+	left: 1%;
+	display: block;
+	margin-top: 10px;
+}
+.submit1 input[type="text"], input[type="number"], .submit1 select{
+	padding: 1%;
+	width: 100%;
+	
+}
+
+/* .Mainsubmit {
+	margin-top: 20px;
+} */
+
+/*----------------------------Display------------------------------*/
+.submit2 {
+	margin-top: 200px;
+}
+
+.submit2 label {
+	left: 1%;
+	display: block;
+	margin-top: 40px;
+	font-size: 40px;
+	line-height: normal;
+}
+
+.submit3 label {
+	left: 1%;
+	display: block;
+	margin-top: 200px;
+	font-size: 25px;
+	line-height: normal;
+}
+/* 
+.submit2 input[type="submit"]{
+	margin-top: 200px;
+	float: left;
+	width: 33.3%;
+	font-size: 40px;
+} */
+
+/* .q {
+	position: absolute;
+	font-size: 50px;
+	display: block;
+	margin-top: 10px;
+} */
+/*
+.op {
+	position: absolute;
+	top: 100px;
+	font-size: 50px; */
+
+/*----------------------------ADMIN------------------------------*/	
+.innerbtn {
+	display: inline-block;
+}

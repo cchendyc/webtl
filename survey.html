@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Survey</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+	<div class="main">
+		<body>
+			<div class="container">
+				<h1>Registration</h1>
+			</p>
+			この登録フォームの目的は、研究についての情報を提供し、ご興味があれば参加登録をしていただくことです。 
+				この登録用紙は、研究そのものではありません。この研究は、後日、あなたが選択した日に行われます。
+			<p>
+				<br>
+				<p>
+					The goal of this registration form is to provide you with information about the study, and to let you sign up to participate, if you are interested. 
+					This registration form is not the study itself! The study will occur at a later date of your choosing. 
+				</p>
+				
+				<form class="submit1" id="f1">
+						<!-- <label>名前 / First Name</label>
+						<input type="text" id="firstName" placeholder="お名前を書いてください / Enter First Name ">
+						<label>苗字 / Last Name</label>
+						<input type="text" id="lastName" placeholder="お苗字を書いてください / Enter Last Name "> -->
+						<label>在日年数 / Years in Japan</label>
+						<input type="number" id="yij">
+						<label>日本語レベル / JLPT </label>
+						<select id="jplevel">
+							<option value="n1">N1</option>
+							<option value="n2">N2</option>
+							<option value="n3">N3</option>
+							<option value="n4">N4</option>
+							<option value="n5">N5</option>
+						</select>
+
+						<label>母語 / Native Language </label>
+						<select id="nl">
+							<option value="chinese">中国語 / Chinese</option>
+							<option value="english">英語 / English</option>
+							<option value="korean">韓国語 / Korean</option>
+						</select>
+
+					<div class="Mainsubmit">
+						<input type="button" value = 'Submit' id='subMain' class="bt0" >
+						<!-- onclick="location.href='display.html'" -->
+					</div>
+				</form>
+			</div>
+		</body>
+		
+	</div>
+    <script type="module" src="sur.js"></script>
+</html>
