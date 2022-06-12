@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Display</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <div class="main">
+        <body>
+            <div class="container">
+                <h2> テストパーツ / Test Round</h2>
+                <div class="submit4">
+                    <br><br><br><br><br><br>
+                    <label id="disTextC2">现在，我们正式开始进行测试。在测试期间，希望您能够集中精神，尽量快速的做出判断。每道题最大的判断时间为15秒，超过15秒会自动进入到下一题。请不要思考太多，按照自己的第一感觉做出选择。</label><br><br>
+                    <label id="disTextE2">For the upcoming questions, please read the sentence and select the party 
+                        that performs the action. e.g. A did sth or A gives sb sth. </label><br><br>
+                    <label id="disTextK2"> 
+                        다가오는 질문에 대해서는 문장을 읽고 행동을 수행하는 당사자를 선택하십시오. A가 뭔가를 했다. 또는 A가 누군가에게 무언가를 줍니다.</label><br><br>
+                    <label id="disTextJ2">では、テストを始めます。テストを受けられるときに、できる限り集中されて早く選んでいただければとても助かります。1問あたりの選択時間は最大15秒で、それを超えると自動的に次の問題に移ります。 あまり深く考えず、自分の感覚でお選びください。</label>
+
+                    <br><br><br>
+                    <input type="button" value = '好的!' id='proceed3' class="bt0" >
+                </div>
+            </div>
+        </body>
+    </div>
+    <script type="module">
+        document.getElementById("proceed3").addEventListener("click", toPractice);
+        function toPractice() {
+            window.location.replace('testing.html'); 
+        }
+    </script>
+</html>

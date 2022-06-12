@@ -36,6 +36,23 @@ body{
 a {
 	text-decoration: none;
 }
+
+.bt1 {
+	margin: 30px 50px;
+	background-color: #333;
+	color:#fff;
+	padding: 30px 40px;
+	text-align: center;
+	border-radius: 10px;
+	font-size: 25px;
+
+}
+
+.bt1:hover{
+	background: black;
+	color: #fff;
+
+}
 /*----------------------------WELCOME PAGE END------------------------------*/
 /*submit button for the main page*/
 .container{
@@ -48,6 +65,12 @@ a {
 	margin-left: 20px;
 }
 
+.container h2{
+	padding: 80px 0 0 0;
+	text-align: center;
+}
+
+
 .main{
 	margin: 0 0 100px 0;
 }
@@ -55,6 +78,7 @@ a {
 .main h1{
 	padding: 80px 0 80px 0;
 	text-align: center;
+
 }
 
 .submit0 {
@@ -97,6 +121,18 @@ a {
 
 }
 
+.btnf {
+	/* display: block;
+	padding: 0px 20px;
+	height: 40px;
+	background-color: #666666;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black; */
+	text-align: center;
+	line-height: 40px;
+	padding: 2% 5% 2% 2%;
+	flex-grow:1;
+}
 /*----------------------------Survey------------------------------*/
 .submit1 {
 	/*	text-align: center;*/
@@ -135,6 +171,7 @@ a {
 	margin-top: 40px;
 	font-size: 40px;
 	line-height: normal;
+	text-align: center;
 }
 
 .submit3 label {
@@ -144,6 +181,17 @@ a {
 	font-size: 25px;
 	line-height: normal;
 }
+
+.submit4 label {
+	/* left: 1%; */
+	/* display: inline-block; */
+	margin-top: 10px;
+	font-size: 25px;
+	line-height: normal;
+
+}
+
+
 /* 
 .submit2 input[type="submit"]{
 	margin-top: 200px;
@@ -168,3 +216,21 @@ a {
 .innerbtn {
 	display: inline-block;
 }
+
+/*----------------------------Testing------------------------------*/	
+#time1 {
+	text-align: right;
+}
+/* #op1 {
+	display:none;
+}
+
+#op2 {
+	display:none;
+}
+
+#op3 {
+	display:none;
+} */
+
+

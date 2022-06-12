@@ -1,3 +1,8 @@
+document.getElementById("op1").style.visibility = 'hidden';
+document.getElementById("op2").style.visibility = 'hidden';
+document.getElementById("op3").style.visibility = 'hidden';
+document.getElementById("time1").style.visibility = 'hidden';
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js';
 import { getAuth,signInAnonymously, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
 import * as fbdb from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js';
@@ -19,6 +24,7 @@ const dbRef = fbdb.ref(db);
 let normal01 = new Map([
     ['s1 normal question01', ['ans1', 'ans2', 'ans3']],
     ['s1 normal question02', ['ans1', 'ans2', 'ans3']],
+    ['s1 normal question03', ['ans1', 'ans2', 'ans3']]
 ]
 )
 let normal02 = new Map([
@@ -161,7 +167,7 @@ fbdb.onValue(fbdb.query(progressRef), snapshot => {
 function startDo(cSet, cType, cQ) {
     var cLst = qLst[cType][cSet-1];
     if (cSet == 5) {
-        window.location.replace('display.html');
+        window.location.replace('endPage.html');
         return 
     }
 
@@ -169,29 +175,55 @@ function startDo(cSet, cType, cQ) {
     currentIterator = cLst.keys();
     var currectq = currentIterator.next().value;
     nextQ(-1);
-    // console.log(cLst);
 
     document.getElementById("op1").addEventListener("click", function(){nextQ("op1");});
     document.getElementById("op2").addEventListener("click", function(){nextQ("op2");});
     document.getElementById("op3").addEventListener("click", function(){nextQ("op3");});
- 
-    // setTimeout(document.getElementById("op3").click(), 3000);
 
+    var interval;
     function nextQ(op) {
-        console.log('out', currectq)
+        clearInterval(interval);
+            if (cType == 1) {
+            var sec = 15;
+            interval = setInterval(function() {
+                if (sec <= 5) {
+                    document.getElementById("time1").innerHTML = sec + 's';
+                } else {
+                    document.getElementById("time1").innerHTML = '';
+                }
+                sec--;
+                if (sec < 0) {
+                    clearInterval(interval);
+                    var ctime = Date.now();;
+                    timeStp.push(ctime);
+                    nextQ(-2);
+                }
+            }, 1000);
+         }
+        
+        if (cType == 1) {
+            document.getElementById("time1").style.visibility = 'visible';
+        } else {
+            document.getElementById("time1").style.visibility = 'hidden';
+        }
         if (!currectq) {
-            // window.location.replace('display.html');
-            console.log('in1')
             const updates = {};
-            timeStp.push(Date.now());
-            
+            var ctime = Date.now();
+            console.log(ctime);
+            timeStp.push(ctime);
             if(cType == 1) {
-                ans.push(document.getElementById(op).value);
+                if (op == -2) {
+                    ans.push("TimeOut");
+                } else {
+                    ans.push(document.getElementById(op).value);
+                }
                 var times = [];
                 for(var i=timeStp.length-1;i > 0; i--) {
                     var diff = timeStp[i] - timeStp[i-1];
-                    times.push(diff);
+                    console.log(timeStp[i], timeStp[i-1], diff);
+                    times.unshift(diff);
                 }
+                console.log(times);
                 fbdb.set(fbdb.ref(db, 'users/' + currentUser +'/set'+cSet+'/'), {
                     'times': times,
                     'ans': ans
@@ -202,48 +234,50 @@ function startDo(cSet, cType, cQ) {
             updates[`/users/${currentUser}/userInfo/progress`] = '0'+String(cSet)+String(cType*-1+1)+'01';
             fbdb.update(dbRef, updates);
 
-            window.location.reload();
+            console.log(cType);
+            if (cType == 1) {
+                if (cSet!=5) {
+                    window.onload =window.location.replace('display1.html');
+                } else {
+                    window.location.replace('endPage.html');
+                    return 
+                }
+                
+            }
+            else if (cType == 0) {
+                window.onload =window.location.replace('display2.html');
+            }
             return -1;
         } else if (cLst.get(currectq).length == 3) {
-            console.log('in2')
             dQ += 1;
             document.getElementById("theq").textContent=currectq;
 
             document.getElementById("op1").value=cLst.get(currectq)[0];
             document.getElementById("op2").value=cLst.get(currectq)[1];
             document.getElementById("op3").value=cLst.get(currectq)[2];
-            if (cType == 1) {
-                timeStp.push(Date.now());
-                if(op != -1) {
-                    ans.push(document.getElementById(op).value);
-                }
-            }
+
+            if (op == -1) {
+                document.getElementById("op1").style.visibility = 'visible';
+                document.getElementById("op2").style.visibility = 'visible';
+                document.getElementById("op3").style.visibility = 'visible';
+                var ctime = Date.now();;
+                console.log(ctime);
+                timeStp.push(ctime);
+
+            } else if (op == -2) {
+                ans.push("TimeOut");
+
+            } else if (cType == 1) {
+                var ctime = Date.now();;
+                console.log(ctime);
+                timeStp.push(ctime);
+                ans.push(document.getElementById(op).value);
+            } 
         }
         currectq = currentIterator.next().value;
     }
 
 }
-// console.log(fbdb.get(fbdb.query(progressRef)));
-
-
-
-
-// fbdb.get(
-//     fbdb.child(dbRef, `users/${currentUser}/progress`)).then((snapshot) => {
-//         if (snapshot.exists()) {
-//             var currValue = snapshot.val();
-//             const updates = {};
-//             updates[`users/${currentUser}/progress`] = snapshot.val()[1] + 1;
-//             fbdb.update(dbRef, updates);
-//             console.log(currValue)
-//         } else {
-//             console.log("No data available");
-//             return;
-//         }
-//     }).catch((error) => {
-//         console.error(error);
-//     });
-
 
 
 

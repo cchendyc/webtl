@@ -18,8 +18,6 @@ const dbRef = fbdb.ref(db);
 
 document.getElementById ("subMain").addEventListener("click", subMain);
 function subMain() {
-    // var fn = document.getElementById('firstName').value
-    // var ln =  document.getElementById('lastName').value
     var nl =  document.getElementById('nl').value
     var yij =  document.getElementById('yij').value
     var jplevel =  document.getElementById('jplevel').value
@@ -43,6 +41,7 @@ function subMain() {
     onAuthStateChanged(auth, user => {
             return signInAnonymously(auth).then(function() {
                 var user = auth.currentUser;
+                console.log(user);
                 fbdb.get(
                     fbdb.child(dbRef, `userCount/${nl[0]}`)).then((snapshot) => {
                         if (snapshot.exists()) {
@@ -50,14 +49,15 @@ function subMain() {
                             const updates = {};
                             updates[`/userCount/${nl[0]}`] = snapshot.val() + 1;
                             fbdb.update(dbRef, updates);
-                            console.log(currValue)
+                        
                                      
                             fbdb.set(fbdb.ref(db, 'users/' + user.uid +'/userInfo'), {
                                 native_lang: nl,
                                 code_id : nl[0]+currValue,
                                 years_in_jp : yij,
                                 JLPTlevel : jplevel,
-                                progress : '01001'
+                                progress : '01001',
+                                test_time : Date.now()
                                 
                             });
                             document.cookie = "authCode=" + user.uid;

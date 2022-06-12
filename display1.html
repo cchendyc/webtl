@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Display</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <div class="main">
+        <body>
+            <div class="container">
+                <h2>練習用パート / Practice Round</h2>
+                <div class="submit4">
+                    <br><br><br><br><br><br>
+                    <label id="disTextC1">读句子，请选择做出句子动作或给予物品的人。
+                        A做了这个动作或者A给了某人某个东西。</label><br><br>
+                    <label id="disTextE1">For the upcoming questions, please read the sentence and select the party 
+                        that performs the action. e.g. A did sth or A gives sb sth. </label><br><br>
+                    <label id="disTextK1"> 
+                        다가오는 질문에 대해서는 문장을 읽고 행동을 수행하는 당사자를 선택하십시오. A가 뭔가를 했다. 또는 A가 누군가에게 무언가를 줍니다.</label><br><br>
+                    <label id="disTextJ1">文を読んで、動作をする人またはものを与える人を選んでください。（主語じゃない場合はあります。）
+                        Aはこの動作をしたまたはAはだれかにものを与えた。</label>
+
+                    <br><br><br>
+                    <input type="button" value = '好的!' id='proceed2' class="bt0" onclick="window.onbeforeunload = null;">
+                </div>
+            </div>
+        </body>
+    </div>
+    <script type="module">
+        window.onbeforeunload = function() {
+            return 'You have unsaved changes!';
+        }
+
+        var k = document.getElementById("proceed2").addEventListener("click", toPractice1);
+        function toPractice1() {
+            window.location.replace('testing.html'); 
+        }
+
+
+
+    </script>
+</html>
