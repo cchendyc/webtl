@@ -23,6 +23,10 @@
         </body>
     </div>
     <script type="module">
+        window.onbeforeunload = function() {
+            return "Please, don't go back or refresh the page.";
+        }
+        
         document.getElementById("proceed1").addEventListener("click", toPractice);
         function toPractice() {
             window.location.replace('display1.html'); 
