@@ -21,7 +21,14 @@ function subMain() {
     var nl =  document.getElementById('nl').value
     var yij =  document.getElementById('yij').value
     var jplevel =  document.getElementById('jplevel').value
-    
+
+    // var nl =  document.getElementById('nl').value
+    var ysj =  document.getElementById('ysj').value
+    var readT =  document.getElementById('readT').value
+    var writeT =  document.getElementById('writeT').value
+    var listenT =  document.getElementById('listenT').value
+    var speakT =  document.getElementById('speakT').value
+    var brief =  document.getElementById('brief').value
 
     if (validate_field(yij) == false) {
         alert("Invalid Years in Japan, Please check and try again.")
@@ -31,12 +38,34 @@ function subMain() {
         alert("Invalid JLPT level, Please check and try again.")
         return
     }
-
     if (validate_field(nl) == false) {
         alert("Invalid Native Language, Please check and try again.")
         return
     }
-
+    if (validate_field(ysj) == false) {
+        alert("Invalid Years studying Japanese, Please check and try again.")
+        return
+    }
+    if (validate_field(readT) == false) {
+        alert("Invalid reading time, Please check and try again.")
+        return
+    }
+    if (validate_field(writeT) == false) {
+        alert("Invalid writing time, Please check and try again.")
+        return
+    }
+    if (validate_field(listenT) == false) {
+        alert("Invalid listening time, Please check and try again.")
+        return
+    }
+    if (validate_field(speakT) == false) {
+        alert("Invalid speaking time, Please check and try again.")
+        return
+    }
+    if (validate_field(brief) == false) {
+        alert("Invalid experience summary, Please check and try again.")
+        return
+    }
     //check for cookie, if has, reload the user
     onAuthStateChanged(auth, user => {
             return signInAnonymously(auth).then(function() {
@@ -57,8 +86,13 @@ function subMain() {
                                 years_in_jp : yij,
                                 JLPTlevel : jplevel,
                                 progress : '01001',
-                                test_time : Date.now()
-                                
+                                test_time : Date.now(),
+                                years_study_jp : ysj,
+                                read_time : readT,
+                                speak_time : speakT,
+                                listen_time : listenT,
+                                write_time : writeT,
+                                experience_summary : brief
                             });
                             document.cookie = "authCode=" + user.uid;
                             window.location.replace('display.html');

@@ -48,6 +48,7 @@ a {
 
 }
 
+label span { color: red; }
 .bt1:hover{
 	background: black;
 	color: #fff;
@@ -150,16 +151,24 @@ a {
 	display: block;
 	margin-top: 10px;
 }
-.submit1 input[type="text"], input[type="number"], .submit1 select{
+.submit1 input[type="text"], input[type="number"],.submit1 select{
 	padding: 1%;
 	width: 100%;
 	
 }
 
-/* .Mainsubmit {
-	margin-top: 20px;
-} */
+.submit1 input[type="textarea"],.submit1 select{
+	padding: 1%;
+	width: 100%;
 
+}
+
+
+#fourSkill {
+	margin: 0 20% 0 20%;
+	display: flex;
+	flex-direction: column;
+}
 /*----------------------------Display------------------------------*/
 .submit2 {
 	margin-top: 200px;

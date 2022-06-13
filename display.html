@@ -29,6 +29,7 @@
         
         document.getElementById("proceed1").addEventListener("click", toPractice);
         function toPractice() {
+            window.onbeforeunload = null;
             window.location.replace('display1.html'); 
         }
     </script>

@@ -3,29 +3,43 @@
     <head>
         <title>Survey</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
 	<div class="main">
 		<body>
 			<div class="container">
 				<h1>Registration</h1>
-			</p>
-			この登録フォームの目的は、研究についての情報を提供し、ご興味があれば参加登録をしていただくことです。 
-				この登録用紙は、研究そのものではありません。この研究は、後日、あなたが選択した日に行われます。
-			<p>
+			</p>テストを受けられる前に、協力者の日本語学習歴を調べるために、アンケートにご協力くださいますようお願いいたします。<p>
 				<br>
-				<p>
-					The goal of this registration form is to provide you with information about the study, and to let you sign up to participate, if you are interested. 
-					This registration form is not the study itself! The study will occur at a later date of your choosing. 
-				</p>
+				<p> Before we start, please help us to fill out this survey about your Japanese language learning history.
+				</p><br>
+				<p>테스트를 시작하기 전에 먼저, 여러분이 일본어를 얼마나 공부하셨는지를 알아보기 위한 앙케이트에 답해주시면 감사하겠습니다. 
+				</p><br>
+				<p>在进行测试之前，请您协助我们填一份问卷调查，这份调查会用来了解您的日语学习历史。</p>
 				
 				<form class="submit1" id="f1">
 						<!-- <label>名前 / First Name</label>
 						<input type="text" id="firstName" placeholder="お名前を書いてください / Enter First Name ">
 						<label>苗字 / Last Name</label>
 						<input type="text" id="lastName" placeholder="お苗字を書いてください / Enter Last Name "> -->
-						<label>在日年数 / Years in Japan</label>
+
+						<label>母語 / Native Language </label>
+						<select id="nl">
+							<option value="english">英語 / English</option>
+							<option value="korean">韓国語 / Korean</option>
+							<option value="chinese">中国語 / Chinese</option>
+						</select>
+						<br>
+						<label> 1. 何年間日本語を勉強しましたか？How many years have you been studying Japanese? 몇 년간 일본어를 공부하셨나요? 您学习日语几年了？
+						</label>
+						<input type="number" id="ysj">
+						<br>
+						<label> 2. 何年日本にいましたか？How many years have you been in Japan? 몇 년동안 일본에 계셨나요? 您在日本几年了？
+						</label>
 						<input type="number" id="yij">
-						<label>日本語レベル / JLPT </label>
+						<br>
+						<label> 3. 日本語レベルはN何ですか？ What's the JLPT level of your Japanese? JLPT(일본어 능력검정시험)를 치셨다면, 몇 급이신가요? 您的JLPT等级是？
+						</label>
 						<select id="jplevel">
 							<option value="n1">N1</option>
 							<option value="n2">N2</option>
@@ -33,13 +47,29 @@
 							<option value="n4">N4</option>
 							<option value="n5">N5</option>
 						</select>
+						<br>
 
-						<label>母語 / Native Language </label>
-						<select id="nl">
-							<option value="chinese">中国語 / Chinese</option>
-							<option value="english">英語 / English</option>
-							<option value="korean">韓国語 / Korean</option>
-						</select>
+						<label> 4.毎日日本語を使う時間はそれぞれ何時間ありますか？How long do you use Japanese in a day? 매일 일본어를 사용하는 시간은 각각 어느정도 되시나요?
+							您每天使用日语的时间是？
+						</label>
+						<div id="fourSkill">
+							<label>読む Read 읽기 读 </label>
+							<input type="number" id="readT" max="24">
+							<label>書く Write 쓰기 写</label>
+							<input type="number" id="writeT" max="24">
+							<label>聞く Listen 듣기 听 </label>
+							<input type="number" id="listenT" max="24">
+							<label>話す Speak 말하기 说</label>
+							<input type="number" id="speakT" max="24">
+						</div>
+
+
+						<label>
+							5.どのように日本語を勉強していますか。自由にお述べください. Please briefly talk about how you learn Japanese (you can use your native language if you wish). 어떻게 일본어를 공부하고 있나요? 자유롭게 작성해 주세요 (
+								원하는 경우 모국어를 사용할 수 있습니다).
+							请简单叙述一下您是如何学习日语的 (可以用母语)。
+						</label>
+						<input type="textarea" id="brief">
 
 					<div class="Mainsubmit">
 						<input type="button" value = '提出する / Submit' id='subMain' class="bt0" >
