@@ -71,6 +71,10 @@ label span { color: red; }
 	text-align: center;
 }
 
+.container h3 {
+	padding: 20px 0 0 0;
+	text-align: center;
+}
 
 .main{
 	margin: 0 0 100px 0;
