@@ -404,6 +404,8 @@ function startDo(cSet, cType, cQ) {
             if (cType == 1) {
                 if (cSet!=5) {
                     window.onload =window.location.replace('display1.html');
+                    var update_roundn = Number(getCookie("normal")) +1;
+                    document.cookie = "normal=" + update_roundn;
                 } else {
                     window.location.replace('endPage.html');
                     return 
@@ -411,6 +413,8 @@ function startDo(cSet, cType, cQ) {
             }
             else if (cType == 0) {
                 window.onload =window.location.replace('display2.html');
+                var update_roundn = Number(getCookie("practice")) +1;
+                document.cookie = "practice=" + update_roundn;
             }
             return -1;
         } else if (cLst.get(currectq).length == 3) {
