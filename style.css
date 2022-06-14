@@ -228,7 +228,7 @@ label span { color: red; }
 
 /*----------------------------Testing------------------------------*/	
 #time1 {
-	text-align: right;
+	text-align: center;
 }
 /* #op1 {
 	display:none;
