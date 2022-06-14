@@ -95,6 +95,8 @@ function subMain() {
                                 experience_summary : brief
                             });
                             document.cookie = "authCode=" + user.uid;
+                            document.cookie = "normal=" + 1;
+                            document.cookie = "practice=" + 1;
                             window.location.replace('display.html');
                         } else {
                             console.log("No data available");
