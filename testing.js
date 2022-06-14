@@ -402,7 +402,7 @@ function startDo(cSet, cType, cQ) {
 
             console.log(cType);
             if (cType == 1) {
-                if (cSet!=5) {
+                if (cSet < 5) {
                     window.onload =window.location.replace('display1.html');
                     var update_roundn = Number(getCookie("normal")) +1;
                     document.cookie = "normal=" + update_roundn;
@@ -411,7 +411,7 @@ function startDo(cSet, cType, cQ) {
                     return 
                 }
             }
-            else if (cType == 0) {
+            else if (cType == 0 && cSet < 5) {
                 window.onload =window.location.replace('display2.html');
                 var update_roundn = Number(getCookie("practice")) +1;
                 document.cookie = "practice=" + update_roundn;
