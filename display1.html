@@ -7,7 +7,8 @@
     <div class="main">
         <body>
             <div class="container">
-                <h2>練習問題 / Practice Round</h2>
+                <h2 id="pTitle"></h2>
+                <h3 id="pTitleE"></h3>
                 <div class="submit4">
                     <br><br>
                     <label id="disTextJ1">文を読んで、動作をした<span>名詞</span>またはものをあげた<span>名詞</span>を選んでください。（主語じゃない場合はあります。）
@@ -36,5 +37,18 @@
             window.location.replace('testing.html'); 
 
         }
+        
+         function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
+        document.getElementById("pTitle").innerHTML= `グループ ${getCookie('practice')} - 練習問題`;
+        document.getElementById("pTitleE").innerHTML= `Group ${getCookie('practice')} - Practice Questions`;
     </script>
 </html>
