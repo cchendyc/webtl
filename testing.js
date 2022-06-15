@@ -348,7 +348,6 @@ function startDo(cSet, cType, cQ) {
 
     var interval;
     function nextQ(op) {
-        console.log(dQ);
         clearInterval(interval);
             if (cType == 1) {
             var sec = 15;
@@ -390,7 +389,7 @@ function startDo(cSet, cType, cQ) {
                     console.log(timeStp[i], timeStp[i-1], diff);
                     times.unshift(diff);
                 }
-                console.log(times);
+
                 fbdb.set(fbdb.ref(db, 'users/' + currentUser +'/set'+cSet+'/'), {
                     'times': times,
                     'ans': ans
@@ -400,7 +399,6 @@ function startDo(cSet, cType, cQ) {
             updates[`/users/${currentUser}/userInfo/progress`] = '0'+String(cSet)+String(cType*-1+1)+'01';
             fbdb.update(dbRef, updates);
 
-            console.log(cType);
             if (cType == 1) {
                 if (cSet < 5) {
                     window.onload =window.location.replace('display1.html');
@@ -410,11 +408,13 @@ function startDo(cSet, cType, cQ) {
                     window.location.replace('endPage.html');
                     return 
                 }
-            }
-            else if (cType == 0 && cSet < 5) {
+            } else if (cType == 0 && cSet < 5) {
                 window.onload =window.location.replace('display2.html');
                 var update_roundn = Number(getCookie("practice")) +1;
                 document.cookie = "practice=" + update_roundn;
+            } else {
+                window.location.replace('endPage.html');
+                return 
             }
             return -1;
         } else if (cLst.get(currectq).length == 3) {
