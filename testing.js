@@ -332,7 +332,7 @@ fbdb.onValue(fbdb.query(progressRef), snapshot => {
 
 function startDo(cSet, cType, cQ) {
     var cLst = qLst[cType][cSet-1];
-    if (cSet == 5) {
+    if (cSet >= 5) {
         window.location.replace('endPage.html');
         return 
     }
