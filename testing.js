@@ -436,7 +436,9 @@ function startDo(cSet, cType, cQ) {
             } else if (op == -2) {
                 ans.push("TimeOut");
 
-            } else if (cType == 1) {
+            } 
+            
+            if (cType == 1) {
                 var ctime = Date.now();;
                 console.log(ctime);
                 timeStp.push(ctime);
