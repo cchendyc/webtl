@@ -429,16 +429,20 @@ function startDo(cSet, cType, cQ) {
                 document.getElementById("op1").style.visibility = 'visible';
                 document.getElementById("op2").style.visibility = 'visible';
                 document.getElementById("op3").style.visibility = 'visible';
-                var ctime = Date.now();;
-                console.log(ctime);
-                timeStp.push(ctime);
+                if (cType == 1) {           
+                    var ctime = Date.now();;
+                    console.log(ctime);
+                    timeStp.push(ctime);
+                    ans.push(document.getElementById(op).value);
+                }
+
 
             } else if (op == -2) {
                 ans.push("TimeOut");
 
             } 
             
-            if (cType == 1) {
+            else if (cType == 1) {
                 var ctime = Date.now();;
                 console.log(ctime);
                 timeStp.push(ctime);
