@@ -433,10 +433,7 @@ function startDo(cSet, cType, cQ) {
                     var ctime = Date.now();;
                     console.log(ctime);
                     timeStp.push(ctime);
-                    ans.push(document.getElementById(op).value);
                 }
-
-
             } else if (op == -2) {
                 ans.push("TimeOut");
 
