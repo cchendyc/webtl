@@ -428,18 +428,14 @@ function startDo(cSet, cType, cQ) {
             if (op == -1) {
                 document.getElementById("op1").style.visibility = 'visible';
                 document.getElementById("op2").style.visibility = 'visible';
-                document.getElementById("op3").style.visibility = 'visible';
-                if (cType == 1) {           
-                    var ctime = Date.now();;
-                    console.log(ctime);
-                    timeStp.push(ctime);
-                }
+                document.getElementById("op3").style.visibility = 'visible';         
+                var ctime = Date.now();;
+                console.log(ctime);
+                timeStp.push(ctime);
             } else if (op == -2) {
                 ans.push("TimeOut");
 
-            } 
-            
-            else if (cType == 1) {
+            } else if (cType == 1) {
                 var ctime = Date.now();;
                 console.log(ctime);
                 timeStp.push(ctime);
