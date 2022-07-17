@@ -22,7 +22,7 @@ const dbRef = fbdb.ref(db);
 
 // VERSION 2. NORMAL INFORMATION ZONE, CHANGE TO JSON IF OVERLOAD
 let practice11 = [
-    ['11母が　息子に　ご飯を　食べさせた。', ['母', '息子', 'ご飯']],
+    ['母が息子にご飯を食べさせた。', ['母', '息子', 'ご飯']],
     ['1田中さんが　泥棒に　財布を　盗まれた。', ['田中さん', '泥棒', '財布']],
     ['1山田さんが　友達に　お金を　貸した。', ['山田さん', '友達', 'お金']],
     ['1中村くんが　彼女に　プレゼントを　もらった。', ['中村くん', '彼女', 'プレゼント']],
@@ -128,7 +128,7 @@ let normal12 = [
 // ]
 
 let rubyPractice11 = [
-    "ははが　むすこに　ごはんを　たべさせた。",
+    "ははがむすこにごはんをたべさせた。",
     "たなかさんが　どろぼうに　さいふを　ぬすまれた。",
     "やまださんが　ともだちに　おかねを　かした。",
     "なかむらくんが　かのじょに　プレゼントを　もらった。",
@@ -264,7 +264,7 @@ function load(cSet, cType, cQ) {
     document.getElementById("op3").value=currectq[1][2];
     
     if (cType == 1) {
-        var sec = 20;
+        var sec = 30;
         interval = setInterval(function() {
             if (sec <= 5) {
                 document.getElementById("time1").innerHTML = sec + 's';
