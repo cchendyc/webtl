@@ -264,7 +264,13 @@ function load(cSet, cType, cQ) {
     document.getElementById("op3").value=currectq[1][2];
     
     if (cType == 1) {
-        var sec = 30;
+        var sec;
+        if (cSet == 1) {
+            sec = 20;
+        } else {
+            sec = 30;
+        }
+        
         interval = setInterval(function() {
             if (sec <= 5) {
                 document.getElementById("time1").innerHTML = sec + 's';
