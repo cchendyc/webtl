@@ -1,6 +1,7 @@
 document.getElementById("op1").style.visibility = 'hidden';
 document.getElementById("op2").style.visibility = 'hidden';
 document.getElementById("op3").style.visibility = 'hidden';
+document.getElementById("op4").style.visibility = 'hidden';
 document.getElementById("time1").style.visibility = 'hidden';
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js';
@@ -83,7 +84,7 @@ let normal11 = [
 ]
 
 let normal12 = [
-    ['2王さんが　話しかけられた　駅で　知らない人に。', ['王さん', '駅', '知らない人']],
+    ['みんなが尊敬している鈴木が上司に信頼される田村に契約書をあげた。', ["みんな","鈴木","上司","田村"]],
     ['2荷物を　後輩に　先輩が　運ばせた。', ['荷物', '後輩', '先輩']],
     ['2妻が　届けた　夫に　忘れ物を。', ['妻', '夫', '忘れ物']]
 ]
@@ -182,7 +183,7 @@ let rubyNormal11 = [
     "ほんを　ともだちに　かえした　わたしが。"
 ]
 let rubyNormal12 = [
-    "ともだち　わたし　ハンカチ　わたした。", 
+    "みんながそんけいしているすずきがじょうしにしんらいされるたむらにけいやくしょをあげた。", 
     "つざきさん　なかむらさん　ほん　もらった。",
     "おや　むすめ　さけ　のませなかった。",
     "はなこ　たろう　ジュース　のまれた。",
@@ -262,6 +263,10 @@ function load(cSet, cType, cQ) {
     document.getElementById("op1").value=currectq[1][0];
     document.getElementById("op2").value=currectq[1][1];
     document.getElementById("op3").value=currectq[1][2];
+    if (cSet == 2) {
+        document.getElementById("op4").style.visibility = 'visible'; 
+        document.getElementById("op4").value=currectq[1][3];
+    }
     
     if (cType == 1) {
         var sec;
@@ -299,6 +304,11 @@ function load(cSet, cType, cQ) {
 
     el = document.getElementById("op3"), elClone = el.cloneNode(true);
     el.parentNode.replaceChild(elClone, el);
+    if (cSet == 2) {
+        el = document.getElementById("op4"), elClone = el.cloneNode(true);
+        el.parentNode.replaceChild(elClone, el);
+        document.getElementById("op4").addEventListener("click", function(){nextQ("op4", cSet, cType, cQ);});
+    }
     // 
     document.getElementById("op1").addEventListener("click", function(){nextQ("op1", cSet, cType, cQ)});
     document.getElementById("op2").addEventListener("click", function(){nextQ("op2", cSet, cType, cQ);});
@@ -377,113 +387,6 @@ function nextQ(op, cSet, cType, cQ) {
     }
     
 }
-        
-//     function nextQ(op) {
-//         clearInterval(interval);
-//         if (cType == 1) {
-//         var sec = 15;
-//         interval = setInterval(function() {
-//             if (sec <= 5) {
-//                 document.getElementById("time1").innerHTML = sec + 's';
-//             } else {
-//                 document.getElementById("time1").innerHTML = '';
-//             }
-//             sec--;
-//             if (sec < 0) {
-//                 clearInterval(interval);
-//                 var ctime = Date.now();;
-//                 timeStp.push(ctime);
-//                 nextQ(-2);
-//             }
-//         }, 1000);
-//         }
-        
-//         if (cType == 1) {
-//             document.getElementById("time1").style.visibility = 'visible';
-//         } else {
-//             document.getElementById("time1").style.visibility = 'hidden';
-//         }
-
-//         if (!currectq) {
-//             const updates = {};
-//             var ctime = Date.now();
-//             console.log(ctime);
-//             timeStp.push(ctime);
-//             if(cType == 1) {
-//                 if (op == -2) {
-//                     ans.push("TimeOut");
-//                 } else {
-//                     ans.push(document.getElementById(op).value);
-//                 }
-//                 var times = [];
-//                 for(var i=timeStp.length-1;i > 0; i--) {
-//                     var diff = timeStp[i] - timeStp[i-1];
-//                     console.log(timeStp[i], timeStp[i-1], diff);
-//                     times.unshift(diff);
-//                 }
-
-//                 fbdb.set(fbdb.ref(db, 'users/' + currentUser +'/set'+cSet+'/'), {
-//                     'times': times,
-//                     'ans': ans
-//                 });
-//                 cSet += 1;
-//             }
-//             updates[`/users/${currentUser}/userInfo/progress`] = '0'+String(cSet)+String(cType*-1+1)+'01';
-//             fbdb.update(dbRef, updates);
-
-//             if (cType == 1) {
-//                 if (cSet < 5) {
-//                     window.onload =window.location.replace('display1.html');
-//                     var update_roundn = Number(getCookie("normal")) +1;
-//                     document.cookie = "normal=" + update_roundn;
-//                 } else {
-//                     window.location.replace('endPage.html');
-//                     return 
-//                 }
-//             } else if (cType == 0 && cSet < 5) {
-//                 window.onload =window.location.replace('display2.html');
-//                 var update_roundn = Number(getCookie("practice")) +1;
-//                 document.cookie = "practice=" + update_roundn;
-//             } else {
-//                 window.location.replace('endPage.html');
-//                 return 
-//             }
-//             return -1;
-//         } else if (cLst.get(currectq).length == 3) {
-//             //load the question and ruby 
-//             document.getElementById("theq").innerHTML=furigana(currectq, 
-//                 rLst[cType][cSet-1][dQ-1]); 
-//             dQ += 1;
-//             //load the options 
-//             document.getElementById("op1").value=cLst.get(currectq)[0];
-//             document.getElementById("op2").value=cLst.get(currectq)[1];
-//             document.getElementById("op3").value=cLst.get(currectq)[2];
-
-//             if (op == -1) {
-//                 var ctime = Date.now();;
-//                 console.log(ctime);
-//                 timeStp.push(ctime);
-//                 // var curr_option;
-//                 // document.getElementById("op1").addEventListener("click", () => {curr_option="op1"});
-//                 // document.getElementById("op2").addEventListener("click", () => {curr_option="op2"});
-//                 // document.getElementById("op3").addEventListener("click", () => {curr_option="op3"});
-//                 // console.log(curr_option)
-//                 // ans.push(document.getElementById(curr_option).value);
-//             } else if (op == -2) {
-//                 ans.push("TimeOut");
-//             } 
-//             else if (cType == 1) {
-//                 var ctime = Date.now();;
-//                 console.log(ctime);
-//                 timeStp.push(ctime);
-//                 ans.push(document.getElementById(op).value);
-//             } 
-//             console.log(document.getElementById(op).value)
-//         }
-//         currectq = currentIterator.next().value;
-//     }
-
-// }
 
 function getCookie(name) {
     var nameEQ = name + "=";
