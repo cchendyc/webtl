@@ -339,8 +339,10 @@ function nextQ(op, cSet, cType, cQ) {
                 return;
             } else {
                 window.onload =window.location.replace('display1.html');
-                var update_roundn = Number(getCookie("normal")) +1;
-                document.cookie = "normal=" + update_roundn;
+                if (cType == 0) {
+                    var update_roundn = Number(getCookie("normal")) +1;
+                    document.cookie = "normal=" + update_roundn;
+                }
                 // load(cSet, (cType*-1)+1, 0);
             }
         } else {
