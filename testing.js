@@ -349,7 +349,7 @@ function nextQ(op, cSet, cType, cQ) {
             var currectq = qLst[cType][cSet-1][cQ];
             console.log(cType, cSet-1, cQ, currectq);
         
-            if (cType == 1 && currectq[1].length == 3) {
+            if (cType == 1 && (currectq[1].length == 3 || currectq[1].length == 4)) {
                 if (op == -2) {
                     ans.push("TimeOut");
                 } else {
